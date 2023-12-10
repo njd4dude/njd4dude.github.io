@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily:{
+      'bubble':  ['Rubik Bubbles', 'sans-serif'],
+    },
     extend: {
       animation: {
         wiggle: "1s ease-in-out wiggle ",
@@ -9,6 +12,11 @@ export default {
       },
 
       keyframes: {
+        openDoor: {
+          "0%" :{
+
+          },
+        },
         wiggle: {
           "0%, 100%": {
             transform: "rotate(0deg)",
@@ -34,5 +42,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
