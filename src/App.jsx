@@ -7,9 +7,9 @@ import Intro from "./Intro";
 function App() {
   return (
     <div className="bg-slate-800">
+      <AboutMe />
       <Intro />
       <ProjectSpace />
-      <AboutMe />
     </div>
   );
 }
