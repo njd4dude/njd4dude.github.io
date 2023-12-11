@@ -89,6 +89,7 @@
 .bounce {
   animation-name: bouncey;
 }
+
 @keyframes doorOpen {
   0% {
     transform: perspective(800px) rotateY(0deg);
@@ -101,7 +102,23 @@
 .doorOpen {
   perspective: 800px;
   transform-style: preserve-3d;
-  animation: doorOpen 1s ease-in-out forwards; /* Use forwards to keep the final state of the animation */
+  animation: doorOpen 1s linear forwards; /* Use forwards to keep the final state of the animation */
+  transform-origin: left; /*Adjust the transform origin to rotate around the left edge */
+}
+
+@keyframes doorClose {
+  0% {
+    transform: perspective(800px) rotateY(-180deg);
+  }
+  100% {
+    transform: perspective(800px) rotateY(0deg);
+  }
+}
+
+.doorClose {
+  perspective: 800px;
+  transform-style: preserve-3d;
+  animation: doorClose 1s linear forwards; /* Use forwards to keep the final state of the animation */
   transform-origin: left; /*Adjust the transform origin to rotate around the left edge */
 }
 
@@ -115,5 +132,20 @@
 }
 
 .textFade {
-  animation: fadeOut 0.5s ease-in-out 0.15s forwards;
+  animation: fadeOut 0.5s linear 0.15s both;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.textFadeIn {
+  animation: fadeIn 0.5s linear 0.5s both;
+}
+
+/* left off here took out delay for textFadeIn to remove blinking */
