@@ -2,8 +2,10 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily:{
-      'bubble':  ['Rubik Bubbles', 'sans-serif'],
+    fontFamily: {
+      bubble: ["Rubik Bubbles", "sans-serif"],
+      silkscreen: ["Silkscreen", "sans-serif"],
+      mina: ["Mina", "sans-serif"],
     },
     extend: {
       animation: {
@@ -13,9 +15,7 @@ export default {
 
       keyframes: {
         openDoor: {
-          "0%" :{
-
-          },
+          "0%": {},
         },
         wiggle: {
           "0%, 100%": {

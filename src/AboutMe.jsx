@@ -1,37 +1,85 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import AdsClickIcon from "@mui/icons-material/AdsClick";
 
 const AboutMe = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [animateDoor, setAnimateDoor] = useState("");
+  const [hoverDoor, setHoverDoor] = useState("");
+  const [allowClick, setAllowClick] = useState(true);
   const [isContactVisible, setContactVisible] = useState(false);
 
-  const handleContactClick = () => {
+  const handleContactClick = (e) => {
     console.log("clicked");
     setContactVisible(!isContactVisible);
+    e.stopPropagation();
+  };
+
+  const handleAnimationEnd = (e) => {
+    setAllowClick(true);
+    console.log("animation ended");
+  };
+
+  const handleDoorClick = () => {
+    console.log("clicked door");
+
+    if (allowClick) {
+      setAnimateDoor((prev) =>
+        prev === "openDoor" ? "closeDoor" : "openDoor"
+      );
+      setAllowClick(false);
+    }
   };
 
   return (
-    <div className="bg-slate-600 flex items-center justify-center h-screen flex-col relative">
-      <div
-        className="flex justify-center items-center "
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div
-          className={`text-6xl z-10 transition-opacity flex w-[440px] h-[600px] justify-center items-center text-center bg-center bg-contain ${
-            isHovered && "doorOpen"
-          }`}
-          style={{
-            backgroundImage: `url("/images/theDOOR.png")`,
-          }}
+    <div className="bg-slate-600 flex items-center justify-center h-screen flex-col  ">
+      <div className="flex justify-center items-center relative  ">
+        <span
+          className={` z-10 transition-opacity flex w-[440px] h-[600px]  text-center bg-center bg-contain hover:shadow-2xl ${
+            animateDoor === "openDoor"
+              ? "doorOpen"
+              : animateDoor === "closeDoor"
+              ? "doorClose"
+              : " "
+          } `}
+          onClick={handleDoorClick}
+          onMouseEnter={() => setHoverDoor(true)}
+          onMouseLeave={() => setHoverDoor(false)}
+          onAnimationEnd={handleAnimationEnd}
+          style={{ backgroundImage: `url("/images/theDOOR.png")` }}
         >
-          <span className={`font-bubble  ${isHovered && "textFade"}`}>
-            Who is Nathan Donato?
+          <span
+            className={` flex justify-center w-full font-mina font-extrabold text-6xl ${
+              animateDoor === "openDoor"
+                ? "textFade"
+                : animateDoor === "closeDoor"
+                ? "textFadeIn"
+                : ""
+            }`}
+          >
+            <p
+              className={` bg-opacity-40 p-6 whitespace-pre-line h-36 relative mt-32 mr-3`}
+            >
+              Who {"\n"} is
+            </p>
+            <p
+              className={`bg-opacity-40  absolute bottom-[68px] whitespace-pre-line `}
+            >
+              Nathan{"\n"} Donato
+            </p>
           </span>
-        </div>
-        <span className="absolute top-10 bg-gray-700 w-[440px] h-[580px] flex flex-col items-center">
+        </span>
+        <span className="absolute h-full w-full flex items-center justify-center">
+          {animateDoor === "" && (
+            <AdsClickIcon
+              className=" z-10 animate-pulse mt-24"
+              style={{ width: "4em", height: "4em" }}
+            />
+          )}
+        </span>
+
+        <span className="absolute bg-red-700 w-[440px] h-[580px] flex flex-col items-center">
           <img
             src="/images/linkedinProf.webp"
             className="rounded-full w-56 h-56 object-cover mt-4"
@@ -45,7 +93,7 @@ const AboutMe = () => {
           </p>
           <button
             className="text-center bg-white p-4 hover:shadow-lg  "
-            onClick={handleContactClick}
+            onClick={(e) => handleContactClick(e)}
           >
             Contact Me
           </button>
