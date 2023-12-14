@@ -18,7 +18,7 @@
 }
 
 .animate.animate--slow {
-  animation-duration: 3s;
+  animation-duration: 15s;
 }
 /* Animations */
 @keyframes slideInLeft {
@@ -38,17 +38,16 @@
 
 @keyframes slideInRight {
   from {
-    transform: translateX(300px);
+    transform: translateX(1200px);
   }
-
   to {
-    transform: translateX(0);
+    transform: translateX(-5100px);
   }
 }
 
 .slideInRight {
   animation-name: slideInRight;
-  animation-timing-function: ease-in;
+  animation-timing-function: linear;
 }
 
 @keyframes rotate {
@@ -99,7 +98,7 @@
   }
 }
 
-.doorOpen {
+.doorOpenAnimation {
   perspective: 800px;
   transform-style: preserve-3d;
   animation: doorOpen 1s linear forwards; /* Use forwards to keep the final state of the animation */
@@ -115,7 +114,7 @@
   }
 }
 
-.doorClose {
+.doorCloseAnimation {
   perspective: 800px;
   transform-style: preserve-3d;
   animation: doorClose 1s linear forwards; /* Use forwards to keep the final state of the animation */
@@ -148,4 +147,16 @@
   animation: fadeIn 0.5s linear 0.5s both;
 }
 
-/* left off here took out delay for textFadeIn to remove blinking */
+@keyframes slideInRight2 {
+  0% {
+    transform: translateX(100%); /*figure out why this ratio of 0 and 100 is so perfect it creates a seamles transition onyl works on certian screen sizes*/
+  }
+  100% {
+    transform: translateX(-40%); /* Adjust as needed based on the width of your text */
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight2 12s linear infinite;
+  animation-fill-mode: both;
+}
