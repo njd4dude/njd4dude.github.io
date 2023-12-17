@@ -1,17 +1,17 @@
 import React from "react";
-import "./App.css"; // Import your custom styles
-import ProjectSpace from "./ProjectSpace";
-import AboutMe from "./AboutMe";
-import Intro from "./Intro";
+import Home from "./routes/Home/Home";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="bg-slate-800">
-      <AboutMe />
-      <Intro />
-      <ProjectSpace />
+    <div>
+      <Home />
+      <hr className="my-20 mx-24 border-t-2 border-black" />
+      <div className="projects">
+        <h2 className="text-7xl font-round font-bold">PROJECTS</h2>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

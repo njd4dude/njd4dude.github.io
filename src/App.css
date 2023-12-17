@@ -152,11 +152,11 @@
     transform: translateX(100%); /*figure out why this ratio of 0 and 100 is so perfect it creates a seamles transition onyl works on certian screen sizes*/
   }
   100% {
-    transform: translateX(-40%); /* Adjust as needed based on the width of your text */
+    transform: translateX(-80%); /* Adjust as needed based on the width of your text */
   }
 }
 
 .animate-slide-in-right {
-  animation: slideInRight2 12s linear infinite;
+  animation: slideInRight2 8s linear infinite;
   animation-fill-mode: both;
 }
