@@ -1,0 +1,23 @@
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+  position: absolute;
+  left: 0; /* Position the scrollbar on the left of the element */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0044ff;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #88888800;
+    border-radius: 5px;
+}

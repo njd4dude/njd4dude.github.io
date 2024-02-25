@@ -3,18 +3,20 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "../error-page.jsx";
-import Home from "./routes/Home/Home.jsx";
+import Intro from "./routes/Intro/Intro.jsx";
 import ProjectSpace from "./routes/ProjectSpace.jsx";
 import Contact from "./routes/Contact.jsx";
 import Navbar from "./components/Navbar.jsx";
-import App from "./App.jsx";
+import Home from "./Home.jsx";
+
+// to save and deploy the code to github: npm run deploy
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <Navbar>
-        <App />
+        <Home />
       </Navbar>
     ),
     errorElement: <ErrorPage />,
