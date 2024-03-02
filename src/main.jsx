@@ -1,13 +1,13 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "../error-page.jsx";
-import Intro from "./routes/Intro/Intro.jsx";
-import ProjectSpace from "./routes/ProjectSpace.jsx";
-import Contact from "./routes/Contact.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./Home.jsx";
+import "./index.css";
+import Contact from "./routes/Contact.jsx";
+import ProjectSpace from "./routes/ProjectSpace.jsx";
 
 // to save and deploy the code to github: npm run deploy
 

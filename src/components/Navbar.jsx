@@ -7,7 +7,7 @@ const Navbar = ({ children }) => {
   console.log("Current route:", location.pathname);
 
   return (
-    <div className="navContainer h-screen overflow-y-scroll bg-gray-100 text-white">
+    <div className="navContainer h-screen overflow-y-scroll overflow-x-hidden bg-black bg-opacity-95 text-white">
       <div className="bg-black bg-opacity-90 fixed w-full flex justify-between items-center px-4 py-4">
         <p className="text-4xl font-round hover:scale-105 ">
           <Link to="/">NJDev</Link>
