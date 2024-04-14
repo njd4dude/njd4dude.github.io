@@ -2,13 +2,17 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    fontFamily: {
-      bubble: ["Rubik Bubbles", "sans-serif"],
-      silkscreen: ["Silkscreen", "sans-serif"],
-      mina: ["Mina", "sans-serif"],
-      round: ["Crete Round", "sans-serif"],
-    },
     extend: {
+      fontFamily: {
+        bubble: ["Rubik Bubbles", "sans-serif"],
+        silkscreen: ["Silkscreen", "sans-serif"],
+        mina: ["Mina", "sans-serif"],
+        round: ["Crete Round", "sans-serif"],
+        terminalFont: ["Space Mono", "VT323"],
+      },
+      colors: {
+        white1: "#ffff",
+      },
       animation: {
         wiggle: "0.5s ease-in-out wiggle  ",
         zoom: "zoom 0.2s ease-in-out",

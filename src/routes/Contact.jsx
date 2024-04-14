@@ -7,10 +7,10 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 const Contact = () => {
   return (
     <div className="mt-24 text-black">
-      <address className="  mx-8 px-2 pt-2 border-2 bg-white border-black   flex justify-center flex-col   ">
+      <address className="  mx-8 px-3 pb-8 pt-2 border-2 bg-white border-black   flex justify-center flex-col   ">
         <h2 className="font-bold text-2xl">Contact Information:</h2>
         <hr className="border-t-2 border-black mb-2" />
-        <div className=" mx-20  py-2 text-lg font-round ">
+        <div className=" mx-8  py-2 text-lg font-round ">
           <p className="hover:scale-110 w-fit ">
             <EmailIcon className="mr-3" />
             <a className="" href="mailto:njdonato30@gmail.com">

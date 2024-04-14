@@ -1,70 +1,34 @@
+import { getFirestore, query } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import app from "../firebaseConfig";
 import "./ProjectSpace.css";
+import { collection, getDocs } from "firebase/firestore";
 
-// 2/16 working on making project cards look better(hoverable effect)
-export const slides = [
-  {
-    src: "https://picsum.photos/seed/img1/600/400",
-    alt: "Image 1 for carousel",
-  },
-  {
-    src: "https://picsum.photos/seed/img2/600/400",
-    alt: "Image 2 for carousel",
-  },
-  {
-    src: "https://picsum.photos/seed/img3/600/400",
-    alt: "Image 3 for carousel",
-  },
-];
-export const projects = [
-  {
-    name: "Project 1",
-    description: "Description of Project 1...",
-    thumbnail: "/images/SomeoneCoding.webp",
-    demoLink: "https://example.com/project1-demo",
-    githubLink: "https://github.com/username/project1",
-  },
-  {
-    name: "Project 2",
-    description: "Description of Project 2...",
-    thumbnail: "/images/CodeCmmt002.svg.png",
-    demoLink: "https://example.com/project2-demo",
-    githubLink: "https://github.com/username/project2",
-  },
-  {
-    name: "Project 2",
-    description: "Description of Project 2...",
-    thumbnail: "/images/CodeCmmt002.svg.png",
-    demoLink: "https://example.com/project2-demo",
-    githubLink: "https://github.com/username/project2",
-  },
-  {
-    name: "Project 2",
-    description: "Description of Project 2...",
-    thumbnail: "/images/CodeCmmt002.svg.png",
-    demoLink: "https://example.com/project2-demo",
-    githubLink: "https://github.com/username/project2",
-  },
-  {
-    name: "Project 2",
-    description: "Description of Project 2...",
-    thumbnail: "/images/CodeCmmt002.svg.png",
-    demoLink: "https://example.com/project2-demo",
-    githubLink: "https://github.com/username/project2",
-  },
-
-  // Add more projects as needed
-
-];
+const db = getFirestore(app);
+const q = query(collection(db, "projects"));
 
 const ProjectSpace = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      const querySnapshot = await getDocs(q);
+      const projectsData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProjects(projectsData);
+    };
+
+    getProjects();
+  }, []);
+
   return (
-    <div className="bg-white projectSpaceContainer md:mx-20 rounded-3xl mt-24 mb-24">
-      <div className="py-8 md:grid grid-cols-3 justify-items-center overflow-hidden">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
-      </div>
+    <div className=" py-10 w-full lg:w-8/12 rounded-2xl flex flex-col items-center justify-center 2xl:flex-row  bg-gray-200 mt-24 mb-24 mx-auto  ">
+      {projects.map((project, index) => (
+        <ProjectCard key={index} project={project} />
+      ))}
     </div>
   );
 };

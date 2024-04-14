@@ -12,9 +12,7 @@ export const Carousel = ({ data }) => {
     setSlide(slide === 0 ? data.length - 1 : slide - 1);
   };
 
-  useEffect(() => {
-    console.log(slide);
-  }, [slide]);
+  useEffect(() => {}, [slide]);
 
   return (
     <div className="relative flex justify-center items-center w-[800px] h-[500px]  ">
@@ -24,7 +22,9 @@ export const Carousel = ({ data }) => {
       />
       {data.map((item, index) => {
         if (index == slide) {
-          return <img src={item.src} className="w-full object-contain rounded-2xl" />;
+          return (
+            <img src={item.src} className="w-full object-contain rounded-2xl" />
+          );
         }
       })}
       <BsArrowRightCircleFill

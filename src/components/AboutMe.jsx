@@ -7,12 +7,9 @@ const AboutMe = () => {
 
   const handleAnimationEnd = (e) => {
     setAllowClick(true);
-    console.log("animation ended");
   };
 
   const handleDoorClick = () => {
-    console.log("clicked door");
-
     if (allowClick) {
       setAnimateDoor((prev) =>
         prev === "openDoor" ? "closeDoor" : "openDoor"
@@ -52,7 +49,7 @@ const AboutMe = () => {
               />
             )}
           </span>
-          <span className="absolute border-4 border-black bg-gray-950 bg-opacity-90 w-[245px] h-[335px] flex flex-col items-center">
+          <span className="absolute border-4 border-black bg-gray-950  w-[245px] h-[335px] flex flex-col items-center">
             <img
               src="/images/linkedinProf.webp"
               className="rounded-full w-28 h-28 object-cover m-4"

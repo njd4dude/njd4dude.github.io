@@ -1,15 +1,14 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "../custom.scss";
+import "./index.css";
 import ErrorPage from "../error-page.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Home from "./Home.jsx";
-import "./index.css";
 import Contact from "./routes/Contact.jsx";
+import Home from "./routes/Home.jsx";
 import ProjectSpace from "./routes/ProjectSpace.jsx";
-
-// to save and deploy the code to github: npm run deploy
+import ReactPlayerTest from "./components/ReactPlayerTest.jsx";
 
 const router = createBrowserRouter([
   {

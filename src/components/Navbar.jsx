@@ -1,49 +1,53 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom"; // If you're using React Router
-import "./Navbar.css";
-//2/18 cant figure out how to hide scrollbar on projects page
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom"; // If you're using React Router
+// import "./Navbar.css";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
+import Sidebar from "./Sidebar";
 const Navbar = ({ children }) => {
-  const location = useLocation();
-  console.log("Current route:", location.pathname);
+  const [collapsed, setCollapsed] = useState(true);
+
+  const toggleSidebar = (collapsed) => {
+    setCollapsed(!collapsed);
+  };
+
+  useEffect(() => {}, [collapsed]);
 
   return (
-    <div className="navContainer h-screen overflow-y-scroll overflow-x-hidden bg-black bg-opacity-95 text-white">
-      <div className="bg-black bg-opacity-90 fixed w-full flex justify-between items-center px-4 py-4">
-        <p className="text-4xl font-round hover:scale-105 ">
-          <Link to="/">NJDev</Link>
+    <div className="navContainer h-screen overflow-x-hidden bg-black text-white relative">
+      <span className="bg-blue-950  w-full h-16 flex p-8 absolute"></span>
+      <div className="absolute w-full flex justify-center items-center mt-2">
+        <p className="text-4xl font-round text-white ">
+          <Link className="" to="/">
+            NJDev
+          </Link>
         </p>
-        <div className="flex space-x-8 ">
-          <span className="relative">
-            <div className="absolute -left-4 top-[4px]">
-              {location.pathname == "/" && (
-                <div className="w-4 h-4 bg-yellow-300 rounded-full"></div>
-              )}
-            </div>
-            <Link className="hover:shadow-xl p-2 " to="/">
-              Home
-            </Link>
-          </span>
-          <span className="relative">
-            <div className="absolute -left-4 top-[4px]">
-              {location.pathname == "/projects" && (
-                <div className="w-4 h-4 bg-yellow-300 rounded-full"></div>
-              )}
-            </div>
-            <Link className="hover:shadow-xl p-2 " to="/projects">
-              Projects
-            </Link>
-          </span>
-          <span className="relative">
-            <div className="absolute -left-4 top-[4px]">
-              {location.pathname == "/contact" && (
-                <div className="w-4 h-4 bg-yellow-300 rounded-full"></div>
-              )}
-            </div>
-            <Link className="hover:shadow-xl p-2 " to="/contact">
-              Contact
-            </Link>
-          </span>
-        </div>
+      </div>
+      <span
+        className="w-16 h-16 flex justify-center items-center left-4 top-0 absolute md:hidden "
+        onTouchEnd={() => toggleSidebar(collapsed)}
+      >
+        <MenuIcon fontSize="" className="text-[50px] text-100 " />
+      </span>
+      <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
+
+      <div className="hidden absolute md:flex space-x-8 right-8 top-4">
+        {/* if i got rid of absolute here it doenst show this */}
+        <span className="hover:scale-105 ">
+          <Link className="p-2 " to="/">
+            Home
+          </Link>
+        </span>
+        <span className=" hover:scale-105">
+          <Link className="hover:shadow-2xl p-2 " to="/projects">
+            Projects
+          </Link>
+        </span>
+        <span className=" hover:scale-105">
+          <Link className="hover:shadow-2xl p-2 " to="/contact">
+            Contact
+          </Link>
+        </span>
       </div>
       {children}
     </div>
