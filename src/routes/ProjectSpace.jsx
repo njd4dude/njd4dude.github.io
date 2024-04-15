@@ -25,7 +25,7 @@ const ProjectSpace = () => {
   }, []);
 
   return (
-    <div className=" py-10 w-full lg:w-8/12 rounded-2xl flex flex-col items-center justify-center 2xl:flex-row  bg-gray-200 mt-24 mb-24 mx-auto  ">
+    <div className=" py-10 w-full lg:w-8/12 rounded-2xl flex flex-col items-center justify-center 2xl:flex-row  bg- mt-24 mb-24 mx-auto  ">
       {projects.map((project, index) => (
         <ProjectCard key={index} project={project} />
       ))}

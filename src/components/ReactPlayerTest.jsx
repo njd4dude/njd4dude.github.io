@@ -22,7 +22,7 @@ const ReactPlayerTest = ({
 
         <ReactPlayer
           className=""
-          width="100%"
+          width="90%"
           height="90%"
           url={url}
           controls={true}

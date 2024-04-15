@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import "./VideoCarousel.css";
 
 const VideoCarousel = ({ videos }) => {
-  const [playingIndex, setPlayingIndex] = useState(0);
+  const [playingIndex, setPlayingIndex] = useState(-1);
 
   const handleSlide = (selectedIndex) => {
     setPlayingIndex(selectedIndex);
@@ -18,8 +18,7 @@ const VideoCarousel = ({ videos }) => {
             url={videoSrc}
             width="100%"
             controls={true}
-            playing={index === playingIndex}
-            volume={0}
+            playing={false}
             playsinline={true}
           />
         </Carousel.Item>

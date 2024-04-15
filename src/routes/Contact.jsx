@@ -15,16 +15,16 @@ const Contact = () => {
           Contact 
         </span>
         <div className="flex items-center lg:block mx-8 py-2 text-sm lg:text-lg lg:space-y-4 ">
-          <p className="flex justify-center w-full lg:hover:scale-110 lg:w-fit bg-red-500  ">
+          <p className="flex justify-center w-full lg:hover:scale-110 lg:w-fit  ">
             <a className="flex" href="mailto:njdonato30@gmail.com">
               <EmailIcon
-                style={iphone ? { fontSize: "100px" } : {}}
+                style={iphone ? { "fontSize": "45px" } : {}}
                 className="lg:mr-3 "
               />
               {!iphone && "njdonato30@gmail.com"}
             </a>
           </p>
-          <p className="flex justify-center w-full lg:hover:scale-110 lg:w-fit bg-blue-500 ">
+          <p className="flex justify-center w-full lg:hover:scale-110 lg:w-fit  ">
             <a
               className="whitespace-"
               href="https://www.linkedin.com/in/nathan-donato-4a0742242/"
@@ -32,7 +32,7 @@ const Contact = () => {
               rel="noopener noreferrer" //for safety always add this when adding target="_blank"
             >
               <LinkedInIcon
-                style={iphone ? { fontSize: "100px" } : {}}
+                style={iphone ? { "fontSize": "45px" } : {}}
                 className="lg:mr-3  "
                 sx={{ color: "#0077B5" }}
               />
@@ -41,14 +41,14 @@ const Contact = () => {
                 "https://www.linkedin.com/in/nathan-donato-4a0742242/"}
             </a>
           </p>
-          <p className="flex justify-center w-full lg:hover:scale-110 lg:w-fit bg-red-500 ">
+          <p className="flex justify-center w-full lg:hover:scale-110 lg:w-fit ">
             <a
               className=""
               href="https://github.com/njd4dude"
               target="_blank"
               rel="noopener noreferrer" //for safety always add this when adding target="_blank"
             >
-              <GitHubIcon style={iphone ? { fontSize: "100px" } : {}} className="lg:mr-3 " />
+              <GitHubIcon style={iphone ? { "fontSize": "45px" } : {}} className="lg:mr-3 " />
               {!iphone && "https://github.com/njd4dude"}
             </a>
           </p>
