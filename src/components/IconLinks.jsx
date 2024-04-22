@@ -5,7 +5,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 //task need to work on icon links for mobile
 const IconLinks = () => {
   return (
-    <div className="flex bg-[#d0d0d0] justify-center space-x-64 rounded-b-2xl p-1 mt-1">
+    <div className="flex bg-[#d0d0d0] justify-center space-x-20 md:space-x-64 rounded-b-2xl p-1 mt-1">
       <p className="hover:scale-110 transition">
         <a className="" href="mailto:njdonato30@gmail.com">
           <EmailIcon style={{ fontSize: "45px" }} className="" />

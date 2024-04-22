@@ -5,29 +5,36 @@ import { useWindowSize } from "react-use";
 import LanguageIcon from "@mui/icons-material/Language";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import isTouchDevice from "../constants";
 
 const ProjectCard = ({ project }) => {
   const [demoViewer, setDemoViewer] = useState(false);
+
   const { width, height } = useWindowSize();
   const iphone = width < 1000;
+  console.log("isTouchDevice", isTouchDevice);
 
   return (
-    <div className="mb-4 lg:mx-20 relative w-96 md:w-96 ">
-      <div className="z-10 relative w-full h-full bg-white border-2 rounded-xl transition shadow-md md:hover:shadow-2xl md:hover:scale-105 p-6 ">
+    <div className="mb-4 lg:mx-20 relative w-96 ">
+      <div
+        className={`z-10 relative w-full h-full bg-white border-2 rounded-xl transition shadow-lg ${
+          !isTouchDevice &&
+          "hover:shadow-2xl hover:shadow-yellow-300 hover:scale-105"
+        } p-6 `}
+      >
         <img
           src={project.thumbnail}
           alt={project.title}
           className="object-cover h-80 w-full rounded-2xl"
         />
         <div className="text-center ">
-          <h3 className="text-xl font-bold font-mina mb-2 text-black mt-6">
+          <h3 className="text-xl font-bold font-mina mb-6 text-black mt-6">
             {project.title}
           </h3>
-          <p className="text-gray-600 mb-4">{project.description}</p>
           <div className="flex justify-center z-10 bg-bla">
             <button
               onClick={() => setDemoViewer((prev) => !prev)}
-              className="bg-[#7f7f7f] hover:bg-opacity-70 text-white font-bold py-2 px-4 rounded mr-4 flex"
+              className="bg-black hover:bg-opacity-70 text-white font-bold py-2 px-4 rounded mr-4 flex"
             >
               <PlayCircleOutlineIcon className="mr-1" />
               <p>Demo</p>
@@ -37,7 +44,7 @@ const ProjectCard = ({ project }) => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#7f7f7f] hover:bg-opacity-70 text-white font-bold py-2 px-4 rounded mr-4 flex"
+                className="bg-black hover:bg-opacity-70 text-white font-bold py-2 px-4 rounded mr-4 flex"
               >
                 <GitHubIcon className="mr-1" />
                 <p>GitHub</p>
@@ -48,7 +55,7 @@ const ProjectCard = ({ project }) => {
                 href={project.live_website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#7f7f7f] hover:bg-opacity-70 text-white font-bold py-2 px-4 rounded flex"
+                className="bg-black hover:bg-opacity-70 text-white font-bold py-2 px-4 rounded flex"
               >
                 <LanguageIcon className="mr-1" />
                 <p>Website</p>

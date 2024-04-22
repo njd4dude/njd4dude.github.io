@@ -1,14 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom"; // If you're using React Router
 // import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
 import Sidebar from "./Sidebar";
 const Navbar = ({ children }) => {
   const [collapsed, setCollapsed] = useState(true);
+  const sideNavRef = useRef(null);
 
-  const toggleSidebar = (collapsed) => {
-    setCollapsed(!collapsed);
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  function handleClickOutside(event) {
+    if (sideNavRef.current && !sideNavRef.current.contains(event.target)) {
+      setCollapsed(true);
+    }
+  }
+
+  const toggleSidebar = () => {
+    console.log("clicked toggleSidebar");
+    setCollapsed((prevCollapsed) => !prevCollapsed);
   };
 
   useEffect(() => {}, [collapsed]);
@@ -25,14 +40,15 @@ const Navbar = ({ children }) => {
       </div>
       <span
         className="w-16 h-16 flex justify-center items-center left-4 top-0 absolute md:hidden "
-        onClick={() => toggleSidebar(collapsed)}
+        onClick={toggleSidebar}
       >
         <MenuIcon fontSize="" className="text-[50px] text-100 " />
       </span>
-      <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
 
+      <div ref={sideNavRef}>
+        <Sidebar collapsed={collapsed} toggleSidebar={toggleSidebar} />
+      </div>
       <div className="hidden absolute md:flex space-x-8 right-8 top-4 font-semibold font-sans">
-        {/* if i got rid of absolute here it doenst show this */}
         <span className="hover:scale-110 transition-transform">
           <Link className="p-2" to="/">
             Home
