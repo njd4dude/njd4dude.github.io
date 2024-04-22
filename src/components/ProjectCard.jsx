@@ -12,7 +12,6 @@ const ProjectCard = ({ project }) => {
 
   const { width, height } = useWindowSize();
   const iphone = width < 1000;
-  console.log("isTouchDevice", isTouchDevice);
 
   return (
     <div className="mb-4 lg:mx-20 relative w-96 ">

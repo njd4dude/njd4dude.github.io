@@ -22,7 +22,6 @@ const Navbar = ({ children }) => {
   }
 
   const toggleSidebar = () => {
-    console.log("clicked toggleSidebar");
     setCollapsed((prevCollapsed) => !prevCollapsed);
   };
 
