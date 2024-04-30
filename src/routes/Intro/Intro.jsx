@@ -4,7 +4,7 @@ import IconLinks from "../../components/IconLinks";
 const Intro = () => {
   return (
     <div className="w-10/12">
-      <div className="bg-[#d0d0d0] rounded-t-2xl p-4">
+      <div className="bg-[#d0d0d0] rounded-t-2xl p-4 ">
         <div className="flex flex-col md:flex-row items-center">
           <h2 className="text-4xl md:text-5xl lg:text-7xl pb-4 font-round font-extrabold w-full text-center  ">
             NATHAN DONATO

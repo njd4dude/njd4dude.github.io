@@ -11,7 +11,7 @@ const Contact = () => {
   const iphone = width < 1000;
   return (
     <div className="mt-24 text-black flex justify-center">
-      <address className="w-96 py-6 bg-white rounded-lg flex justify-center flex-col items-center not-italic ">
+      <address className="w-96 py-6 bg-white shadow-2xl rounded-lg flex justify-center flex-col items-center not-italic ">
         <span className="font-bold text-3xl text-center  w-4/5 p-2 rounded-lg mb-4">
           CONTACT
         </span>

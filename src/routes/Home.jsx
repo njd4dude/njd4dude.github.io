@@ -4,8 +4,6 @@ import VideoCarousel from "../components/VideoCarousel";
 import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
 import app from "../firebaseConfig";
 import { getVideos } from "../fetchVideos";
-//need to work on homepage for mobile
-
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
@@ -23,11 +21,10 @@ const Home = () => {
       <div className="flex  justify-center">
         <Intro />
       </div>
-      <hr className="my-20 mx-auto w-1/3 border-t-4 rounded-full border-[#000000]  " />
-      <h2 className="text-center text-7xl font-round font-bold mb-12 mt-20">
-        PROJECTS
-      </h2>
-      <div className="flex items-center justify-center ">
+        <h2 className="text-6xl md:text-7xl font-terminalFont font-bold mb-12 mt-20  tracking-widest text-center underline text-underline underline-offset-8">
+          PROJECTS
+        </h2>
+      <div className="flex items-center justify-center  ">
         <VideoCarousel videos={videos} />
       </div>
     </div>

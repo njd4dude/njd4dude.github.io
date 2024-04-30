@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"; // If you're using React Router
 // import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "./Sidebar";
+import "./Navbar.css";
 const Navbar = ({ children }) => {
   const [collapsed, setCollapsed] = useState(true);
   const sideNavRef = useRef(null);
@@ -28,8 +29,8 @@ const Navbar = ({ children }) => {
   useEffect(() => {}, [collapsed]);
 
   return (
-    <div className="navContainer h-screen overflow-x-hidden bg-[#bebebe] text-black relative">
-      <span className="bg-[#ececec]  w-full h-16 flex p-8 absolute"></span>
+    <div className="navContainer h-screen overflow-x-hidden text-black relative">
+      <span className="bg-[#ececec]  w-full h- flex p-8 absolute"></span>
       <div className="absolute w-full flex justify-center items-center mt-2">
         <p className="text-4xl font-round ">
           <Link className="" to="/">
