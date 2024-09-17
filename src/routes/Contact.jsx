@@ -10,12 +10,12 @@ const Contact = () => {
   const { width, height } = useWindowSize();
   const iphone = width < 1000;
   return (
-    <div className="mt-24 text-black flex justify-center">
-      <address className="w-96 py-6 bg-white shadow-2xl rounded-lg flex justify-center flex-col items-center not-italic ">
-        <span className="font-bold text-3xl text-center  w-4/5 p-2 rounded-lg mb-4">
-          CONTACT
+    <div className="mt-24 text-black flex justify-center h-full">
+      <address className="w-1/3 h-1/3  bg-white shadow-2xl rounded-lg flex justify-center flex-col items-center not-italic ">
+        <span className=" font-bold text-5xl  p-4 mb-12 w-full text-center  ">
+          Contact Me
         </span>
-        <div className="ml-2 text-sm md:text-lg space-y-4 ">
+        <div className="ml-2 text-sm md:text-xl space-y-4 ">
           <p
             className={`flex justify-center  ${
               isTouchDevice

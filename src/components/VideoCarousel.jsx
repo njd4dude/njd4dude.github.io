@@ -12,12 +12,12 @@ const VideoCarousel = ({ videos }) => {
 
   return (
     <Carousel
-      className="relative flex items-center bg-black shadow-2xl"
+      className="relative flex items-center bg-black shadow-2xl "
       onSelect={handleSlide}
       interval={null}
     >
       {videos.map((videoSrc, index) => (
-        <Carousel.Item key={index}>
+        <Carousel.Item key={index} >
           <ReactPlayer
             url={videoSrc}
             width="100%"

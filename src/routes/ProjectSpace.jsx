@@ -24,8 +24,12 @@ const ProjectSpace = () => {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    console.log(projects);
+  }, [projects]);
+
   return (
-    <div className=" py-10 w-full lg:w-8/12 rounded-2xl flex flex-col items-center justify-center 2xl:flex-row  bg- mt-24 mb-24 mx-auto  ">
+    <div className="flex flex-col justify-center my-20">
       {projects.map((project, index) => (
         <ProjectCard key={index} project={project} />
       ))}

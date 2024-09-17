@@ -30,7 +30,7 @@ const Navbar = ({ children }) => {
 
   return (
     <div className="navContainer h-screen overflow-x-hidden text-black relative">
-      <span className="bg-[#ececec]  w-full h- flex p-8 absolute"></span>
+      <span className="bg-[#ececec] bg-opacity-10 w-full h-16 flex p-8 absolute"></span>
       <div className="absolute w-full flex justify-center items-center mt-2">
         <p className="text-4xl font-round ">
           <Link className="" to="/">

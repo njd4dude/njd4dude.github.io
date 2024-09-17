@@ -4,6 +4,7 @@ import VideoCarousel from "../components/VideoCarousel";
 import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
 import app from "../firebaseConfig";
 import { getVideos } from "../fetchVideos";
+import Boxes from "../components/Boxes";
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
@@ -16,16 +17,32 @@ const Home = () => {
     fetchVideos();
   }, []);
 
+  const programmingLanuguages = ["Python", "Javascript", "Java", "C", "SQL"];
+  const webTechnologies = ["React", "HTML", "CSS", "TailwindCSS"];
+  const fullstackDevelopment = [
+    "Postman",
+    "API Development and Integration",
+    "Website Hosting and Deployment",
+    "Git/Github",
+    "CLI",
+    "Chrome Extensions",
+  ];
+
   return (
     <div className="mt-24 mb-24 ">
-      <div className="flex  justify-center">
+      <div className="flex  justify-center ">
         <Intro />
       </div>
-        <h2 className="text-6xl md:text-7xl font-terminalFont font-bold mb-12 mt-20  tracking-widest text-center underline text-underline underline-offset-8">
-          PROJECTS
-        </h2>
-      <div className="flex items-center justify-center  ">
-        <VideoCarousel videos={videos} />
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16  mx-40 my-20">
+        <Boxes
+          category={"Programming Lanuguages"}
+          items={programmingLanuguages}
+        />
+        <Boxes category={"Web Techonolgies"} items={webTechnologies} />
+        <Boxes
+          category={"Fullstack Development"}
+          items={fullstackDevelopment}
+        />
       </div>
     </div>
   );
