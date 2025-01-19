@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar.jsx";
 import Contact from "./routes/Contact.jsx";
 import Home from "./routes/Home.jsx";
 import ProjectSpace from "./routes/ProjectSpace.jsx";
+import Footer from "./components/Footer.jsx";
 
 const router = createHashRouter([
   {
@@ -14,6 +15,7 @@ const router = createHashRouter([
     element: (
       <Navbar>
         <Home />
+        <Footer />
       </Navbar>
     ),
   },
@@ -22,6 +24,7 @@ const router = createHashRouter([
     element: (
       <Navbar>
         <ProjectSpace />
+        <Footer />
       </Navbar>
     ),
   },
@@ -30,6 +33,7 @@ const router = createHashRouter([
     element: (
       <Navbar>
         <Contact />
+        <Footer />
       </Navbar>
     ),
   },

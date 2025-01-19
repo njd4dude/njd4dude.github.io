@@ -5,6 +5,7 @@ import { getDownloadURL, getStorage, listAll, ref } from "firebase/storage";
 import app from "../firebaseConfig";
 import { getVideos } from "../fetchVideos";
 import Boxes from "../components/Boxes";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [videos, setVideos] = useState([]);
@@ -17,7 +18,7 @@ const Home = () => {
     fetchVideos();
   }, []);
 
-  const programmingLanuguages = ["Python", "Javascript", "Java", "C", "SQL"];
+  const programmingLanguages = ["Python", "Javascript", "Java", "C", "SQL"];
   const webTechnologies = ["React", "HTML", "CSS", "TailwindCSS"];
   const fullstackDevelopment = [
     "Postman",
@@ -27,22 +28,24 @@ const Home = () => {
     "CLI",
     "Chrome Extensions",
   ];
+  const machineLearning = ["PyTorch", "TensorFlow", "Computer Vision"];
 
   return (
-    <div className="mt-24 mb-24 ">
-      <div className="flex  justify-center ">
+    <div className="mt-24">
+      <div className="flex justify-center">
         <Intro />
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16  mx-40 my-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mx-4 sm:mx-20 lg:mx-40 my-20">
         <Boxes
-          category={"Programming Lanuguages"}
-          items={programmingLanuguages}
+          category={"Programming Languages"}
+          items={programmingLanguages}
         />
-        <Boxes category={"Web Techonolgies"} items={webTechnologies} />
+        <Boxes category={"Web Technologies"} items={webTechnologies} />
         <Boxes
           category={"Fullstack Development"}
           items={fullstackDevelopment}
         />
+        <Boxes category={"Machine Learning"} items={machineLearning} />
       </div>
     </div>
   );

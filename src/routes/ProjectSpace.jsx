@@ -29,9 +29,9 @@ const ProjectSpace = () => {
   }, [projects]);
 
   return (
-    <div className="flex flex-col justify-center my-20">
+    <div className="flex flex-col my-20">
       {projects.map((project, index) => (
-        <ProjectCard key={index} project={project} />
+        <ProjectCard key={project.id} project={project} />
       ))}
     </div>
   );

@@ -2,12 +2,14 @@ import React from "react";
 
 const Boxes = ({ category, items }) => {
   let bgColor = "";
-  if (category === "Programming Lanuguages") {
-    bgColor = "bg-red-500";
-  } else if (category === "Web Techonolgies") {
+  if (category === "Programming Languages") {
+    bgColor = "bg-red-500"; 
+  } else if (category === "Web Technologies") { 
     bgColor = "bg-green-500";
   } else if (category === "Fullstack Development") {
     bgColor = "bg-blue-500";
+  } else if (category === "Machine Learning") {
+    bgColor = "bg-yellow-500";
   }
   return (
     <div className={`${bgColor} bg-opacity-75 p-10 rounded-3xl shadow-md hover:shadow-2xl hover:scale-105 duration-75`}>

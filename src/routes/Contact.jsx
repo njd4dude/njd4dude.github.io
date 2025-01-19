@@ -1,70 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { useWindowSize } from "react-use";
-import isTouchDevice from "../constants";
-//editing contact inforamtion layout for iphone
 
 const Contact = () => {
-  const { width, height } = useWindowSize();
-  const iphone = width < 1000;
   return (
-    <div className="mt-24 text-black flex justify-center h-full">
-      <address className="w-1/3 h-1/3  bg-white shadow-2xl rounded-lg flex justify-center flex-col items-center not-italic ">
-        <span className=" font-bold text-5xl  p-4 mb-12 w-full text-center  ">
-          Contact Me
-        </span>
-        <div className="ml-2 text-sm md:text-xl space-y-4 ">
-          <p
-            className={`flex justify-center  ${
-              isTouchDevice
-                ? "hover:bg-black hover:bg-opacity-50"
-                : "hover:scale-105"
-            } w-fit`}
-          >
+    <div className="flex justify-center items-center min-h-screen">
+      <address className="bg-white shadow-xl rounded-lg p-4 flex flex-col items-center">
+        <span className="font-bold text-2xl mb-6">Contact Me</span>
+        <div className="space-y-4 text-base">
+          <p className="flex items-center justify-center hover:scale-105">
             <a className="flex items-center" href="mailto:njdonato30@gmail.com">
-              <span>
-                <EmailIcon className="mr-3 " />
-              </span>
+              <EmailIcon className="mr-3" />
               njdonato30@gmail.com
             </a>
           </p>
-          <p
-            className={`flex justify-center  ${
-              isTouchDevice
-                ? "hover:bg-black hover:bg-opacity-50"
-                : "hover:scale-105"
-            } w-fit`}
-          >
+          <p className="flex items-center justify-center hover:scale-105">
             <a
               className="flex items-center"
               href="https://www.linkedin.com/in/nathan-donato-4a0742242/"
               target="_blank"
-              rel="noopener noreferrer" //for safety always add this when adding target="_blank"
+              rel="noopener noreferrer"
             >
-              <span>
-                <LinkedInIcon className="mr-3   " sx={{ color: "#0077B5" }} />
-              </span>
+              <LinkedInIcon className="mr-3" sx={{ color: "#0077B5" }} />
               linkedin.com/in/nathan-donato-4a0742242/
             </a>
           </p>
-          <p
-            className={`flex justify-center  ${
-              isTouchDevice
-                ? "hover:bg-black hover:bg-opacity-50"
-                : "hover:scale-105"
-            } w-fit`}
-          >
+          <p className="flex items-center justify-center hover:scale-105">
             <a
               className="flex items-center"
               href="https://github.com/njd4dude"
               target="_blank"
-              rel="noopener noreferrer" //for safety always add this when adding target="_blank"
+              rel="noopener noreferrer"
             >
-              <span>
-                <GitHubIcon className="mr-3 " />
-              </span>
+              <GitHubIcon className="mr-3" />
               github.com/njd4dude
             </a>
           </p>
